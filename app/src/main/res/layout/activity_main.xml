@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <org.AlieCloudTag.work.view.AlieCloudTagView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/text_flag_01"
+            android:text="hello" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="Cristi" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="Arsenal"
+            android:textSize="18sp" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="Ozil,good" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="Where are you" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="热刺" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="曼联卢卡库"
+            android:textSize="20sp" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="阿扎尔" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="德布劳内" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="C罗" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="莫德里奇" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="皇家马德里" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="蒙雷亚尔" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="奥巴梅扬" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="姆希塔良" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="阿奎罗" />
+
+    </org.AlieCloudTag.work.view.AlieCloudTagView>
+
+</LinearLayout>
