@@ -126,6 +126,15 @@ public class AlieCloudTagView extends ViewGroup {
                 top = currentTop + marginLayoutParams.topMargin;
                 right = left + view.getMeasuredWidth();
                 bottom = top + view.getMeasuredHeight();
+
+                /**
+                 * ======================这里是居中控件居中方案,不需要时，删除即可===========================================
+                 */
+                top = calculateTop(top, view.getMeasuredHeight(), heights.get(i));
+                bottom = calculateBottom(bottom,view.getMeasuredHeight(),heights.get(i));
+                /**
+                 * ======================这里是居中控件居中方案，不需要时，删除即可===========================================
+                 */
                 view.layout(left, top, right, bottom);
                 currentLeft += view.getMeasuredWidth() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
             }
@@ -135,5 +144,53 @@ public class AlieCloudTagView extends ViewGroup {
         }
         allLineViews.clear();
         heights.clear();
+    }
+
+
+    /**
+     * 重新编辑单行控件的Top坐标(为实现每行控件 垂直居中)
+     *
+     * @param top       当前高度坐标
+     * @param rawHeight 当前控件的高度
+     * @param height    当前控件所在行的高度
+     * @return
+     */
+    private int calculateTop(int top, int rawHeight, int height) {
+        int targetTop = 0;
+        // 除以2表示中心点的位移，因此，由于是做差，因此也可以不用除以2
+        int offsite = rawHeight / 2 - height / 2;
+        // 下面的判断为了便于理解，这里选择使用绝对值
+        if (offsite == 0) {
+            targetTop = top;
+        } else if (offsite < 0) {
+            targetTop = top + Math.abs(offsite);
+        } else {
+            targetTop = top - Math.abs(offsite);
+        }
+        return targetTop;
+    }
+
+    /**
+     * 重新编辑单行控件的Bottom坐标(为实现每行控件 垂直居中)
+     *
+     * @param bottom
+     * @param rawHeight
+     * @param height
+     * @return
+     */
+    private int calculateBottom(int bottom, int rawHeight, int height) {
+        int targetBottom = 0;
+        // 除以2表示中心点的位移，因此，由于是做差，因此也可以不用除以2
+        int offsite = rawHeight / 2 - height / 2;
+        // 下面的判断为了便于理解，这里选择使用绝对值
+        if (offsite == 0) {
+            targetBottom = bottom;
+        } else if (offsite < 0) {
+            targetBottom = bottom + Math.abs(offsite);
+        } else {
+            targetBottom = bottom - Math.abs(offsite);
+        }
+        return targetBottom;
+
     }
 }
