@@ -131,7 +131,7 @@ public class AlieCloudTagView extends ViewGroup {
                  * ======================这里是居中控件居中方案,不需要时，删除即可===========================================
                  */
                 top = calculateTop(top, view.getMeasuredHeight(), heights.get(i));
-                bottom = calculateBottom(bottom,view.getMeasuredHeight(),heights.get(i));
+                bottom = calculateBottom(bottom, view.getMeasuredHeight(), heights.get(i));
                 /**
                  * ======================这里是居中控件居中方案，不需要时，删除即可===========================================
                  */
@@ -160,12 +160,11 @@ public class AlieCloudTagView extends ViewGroup {
         // 除以2表示中心点的位移，因此，由于是做差，因此也可以不用除以2
         int offsite = rawHeight / 2 - height / 2;
         // 下面的判断为了便于理解，这里选择使用绝对值
+        // 【注意】 offset 只能是小于等于0，不可能大于0，因为当前行控件最大的高度就是当前行高
         if (offsite == 0) {
             targetTop = top;
         } else if (offsite < 0) {
             targetTop = top + Math.abs(offsite);
-        } else {
-            targetTop = top - Math.abs(offsite);
         }
         return targetTop;
     }
@@ -187,8 +186,6 @@ public class AlieCloudTagView extends ViewGroup {
             targetBottom = bottom;
         } else if (offsite < 0) {
             targetBottom = bottom + Math.abs(offsite);
-        } else {
-            targetBottom = bottom - Math.abs(offsite);
         }
         return targetBottom;
 
