@@ -1,4 +1,4 @@
-package org.AlieCloudTag.work.view;
+package org.AlieCloudTag.work.view.java;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -72,6 +72,7 @@ public class AlieCloudTagView extends ViewGroup {
             heights.clear();
         }
         if (parentHeightmode == MeasureSpec.EXACTLY && parentWidthMode == MeasureSpec.EXACTLY) {
+            Log.i(TAG, "========parentHeightmode == MeasureSpec.EXACTLY");
             measureWidth = parentWidthSize;
             measureHeight = parentHeightSize;
         } else {

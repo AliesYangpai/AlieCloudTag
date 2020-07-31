@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <org.AlieCloudTag.work.view.AlieCloudTagView
+    <org.AlieCloudTag.work.view.kt.AlieCloudTagView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -75,6 +75,6 @@
             style="@style/text_flag_01"
             android:text="阿奎罗" />
 
-    </org.AlieCloudTag.work.view.AlieCloudTagView>
+    </org.AlieCloudTag.work.view.kt.AlieCloudTagView>
 
 </LinearLayout>
