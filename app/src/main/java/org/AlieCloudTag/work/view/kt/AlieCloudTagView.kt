@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import kotlin.math.abs
 import kotlin.math.max
 
 /**
@@ -93,10 +94,6 @@ class AlieCloudTagView(context: Context, attrs: AttributeSet?, defStyle: Int) : 
                 top = currentTop + marginLayoutParams.topMargin
                 right = left + it.measuredWidth
                 bottom = top + it.measuredHeight
-
-                /**
-                 * ======================这里是居中控件居中方案,不需要时，删除即可===========================================
-                 */
                 /**
                  * ======================这里是居中控件居中方案,不需要时，删除即可===========================================
                  */
@@ -105,8 +102,6 @@ class AlieCloudTagView(context: Context, attrs: AttributeSet?, defStyle: Int) : 
                 /**
                  * ======================这里是居中控件居中方案，不需要时，删除即可===========================================
                  */
-
-
                 it.layout(left, top, right, bottom)
                 currentLeft += it.measuredWidth + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin
             }
@@ -134,7 +129,7 @@ class AlieCloudTagView(context: Context, attrs: AttributeSet?, defStyle: Int) : 
         if (offsite == 0) {
             targetTop = top
         } else if (offsite < 0) {
-            targetTop = top + kotlin.math.abs(offsite)
+            targetTop = top + abs(offsite)
         }
         return targetTop
     }
@@ -155,7 +150,7 @@ class AlieCloudTagView(context: Context, attrs: AttributeSet?, defStyle: Int) : 
         if (offsite == 0) {
             targetBottom = bottom
         } else if (offsite < 0) {
-            targetBottom = bottom + Math.abs(offsite)
+            targetBottom = bottom + abs(offsite)
         }
         return targetBottom
     }
