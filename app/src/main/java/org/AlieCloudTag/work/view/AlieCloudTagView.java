@@ -2,6 +2,7 @@ package org.AlieCloudTag.work.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,9 +15,10 @@ import java.util.List;
  * 版本
  */
 public class AlieCloudTagView extends ViewGroup {
-
+    private static final String TAG = "AlieCloudTagView";
     private List<Integer> heights;
     private List<List<View>> allLineViews;
+    private boolean flag = false;
 
     public AlieCloudTagView(Context context) {
         super(context);
@@ -50,6 +52,7 @@ public class AlieCloudTagView extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.i(TAG, "========onMeasure");
         int parentWidthMode = MeasureSpec.getMode(widthMeasureSpec);
         int parentHeightmode = MeasureSpec.getMode(heightMeasureSpec);
 
@@ -59,6 +62,15 @@ public class AlieCloudTagView extends ViewGroup {
         int measureWidth = 0;
         int measureHeight = 0;
 
+        /**
+         * 修改8.0以上onMeasure重复调用问题
+         */
+        if (allLineViews != null && !allLineViews.isEmpty()) {
+            allLineViews.clear();
+        }
+        if (heights != null && !heights.isEmpty()) {
+            heights.clear();
+        }
         if (parentHeightmode == MeasureSpec.EXACTLY && parentWidthMode == MeasureSpec.EXACTLY) {
             measureWidth = parentWidthSize;
             measureHeight = parentHeightSize;
@@ -110,6 +122,7 @@ public class AlieCloudTagView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.i(TAG, "========onLayout");
         int left = 0;
         int top = 0;
         int right = 0;
